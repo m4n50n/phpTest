@@ -7,9 +7,8 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 /* API TEST */
 $data = json_decode(file_get_contents("php://input"));
-echo json_encode($data);
 
-if ($data === "" || $data === null) {
+if (!isset($data["peticion"])) {
     http_response_code(400);
     echo json_encode(array("response" => "Bad Request"));
 } else {
