@@ -6,6 +6,6 @@ header("Access-Control-Allow-Methods: POST");
 
 /* API TEST */
 $data = json_decode(file_get_contents("php://input"));
-print_r($data);
+echo json_encode("Respuesta desde la api");
 
 ?>
