@@ -2,7 +2,7 @@
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: GET");
+header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 function datos()
@@ -17,10 +17,9 @@ if (!isset($data["api_key"])) {
     echo json_encode(array("response"=>"Bad Request"));
     
 }
-else if (md5(date("d-m-Y")) !== md5($data["api_key"])) {
+else if (md5(date("d-m-Y")) !== $data["api_key"]) {
     http_response_code(401);    
-    echo json_encode(array("response"=>"Unauthorized"));
-    exit();
+    echo json_encode(array("response"=>"Unauthorized"));    
 }
 else {
     http_response_code(200);
