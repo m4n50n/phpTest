@@ -1,6 +1,6 @@
 <?php
 
 /* API TEST */
-echo "TEST JOSE";
+echo json_encode("prueba");
 
 ?>
