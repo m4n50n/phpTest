@@ -6,6 +6,14 @@ header("Access-Control-Allow-Methods: POST");
 
 /* API TEST */
 $data = json_decode(file_get_contents("php://input"));
-echo json_encode("Respuesta desde la api");
+
+if (!$data) {
+    http_response_code(400); 
+    echo json_encode("No se ha recibido ningún dato");
+}
+else {
+    http_response_code(200); 
+    echo json_encode("Respuesta correcta desde la api");
+}
 
 ?>
