@@ -9,8 +9,6 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 $data = json_decode(file_get_contents("php://input"));
 echo json_encode($data);
 
-exit();
-
 if ($data === "" || $data === null) {
     http_response_code(400);
     echo json_encode(array("response" => "Bad Request"));
