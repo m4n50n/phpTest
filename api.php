@@ -3,11 +3,8 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
-
-header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
-header("Access-Control-Allow-Methods: POST");
 header("Allow: POST");
+header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
 
 function datos()
 {
@@ -26,7 +23,7 @@ $message = 'Exec with no actions';
 $data = [];
 $object = [];
 
-if($method !== "POST") {
+if ($method !== "POST") {
     // http_response_code(400);
     // echo json_encode(array("response" => "Bad Method"));
     [$code, $error, $message] = [400, true, 'Bad Method, try another time'];
@@ -53,6 +50,8 @@ $response['error'] = $error;
 $response['message'] = $message;
 $response['data'] = $data;
 $response['object'] = $object;
+
 http_response_code( $response['code'] );
 echo json_encode( $response );
+
 exit();
